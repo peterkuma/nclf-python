@@ -10,7 +10,10 @@ def decode_s(s):
     try:
         return json.loads(s)
     except:
-        return s
+        try:
+            return json.loads('"%s"' % s.replace('"', '\\"'))
+        except:
+            return s
 
 def nclf(argv):
     args_pos = []

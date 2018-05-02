@@ -1,5 +1,7 @@
 # nclf-python
 
+**Development status:** proposal
+
 nclf-python is an implementation of the
 [New Command Line Format](https://github.com/peterkuma/nclf) (NCLF)
 in python.
@@ -33,8 +35,22 @@ Decode NCLF arguments and return array of two elements representing NCLF
 
 ### nclf
 
+```sh
+nclf [arg...]
+```
+
 `nclf` is a command line program which decodes its NCLF command line arguments
 and prints them as JSON to standard output.
+
+### as_s
+
+```sh
+as_s [arg...]
+```
+
+as_s is a command line program which prints its arguments to standard output
+as JSON strings separated by space. The only non-alphanumeric characters in the
+output are `"`, ` ` and `\`.
 
 ## Install
 
@@ -50,6 +66,11 @@ and prints them as JSON to standard output.
 [Public domain](LICENSE.md).
 
 ## Release notes
+
+### 0.2.0 (2018-05-02)
+
+- Add as_s.
+- Change decoding of string arguments.
 
 ### 0.1.0 (2018-05-02)
 
