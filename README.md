@@ -1,7 +1,7 @@
 # nclf-python
 
 nclf-python is an implementation of the
-[New Command Line Format](https://peterkuma.github.com/nclf) (NCLF)
+[New Command Line Format](https://github.com/peterkuma/nclf) (NCLF)
 in python.
 
 ## Example
