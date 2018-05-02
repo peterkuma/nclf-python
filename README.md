@@ -6,6 +6,8 @@ nclf-python is an implementation of the
 [New Command Line Format](https://github.com/peterkuma/nclf) (NCLF)
 in python.
 
+Currently this implementation is Python 2 only.
+
 ## Example
 
 ```python
