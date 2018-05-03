@@ -69,6 +69,10 @@ output are `"`, ` ` and `\`.
 
 ## Release notes
 
+### 0.4.0 (2018-05-03)
+
+- Add boolean named arguments.
+
 ### 0.3.0 (2018-05-03)
 
 - Add literal strings following `=`.
