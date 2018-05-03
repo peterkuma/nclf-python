@@ -4,7 +4,9 @@ import sys
 import json
 import re
 
-name_re = re.compile('^([a-zA-Z_][a-zA-Z0-9_]*)=(.*)$')
+name_re = re.compile(r'^([a-zA-Z_][a-zA-Z0-9_]*)=(.*)$')
+option_re = re.compile(r'^\+([a-zA-Z_]+)$')
+long_option_re = re.compile(r'^\+\+([a-zA-Z_][a-zA-Z0-9_]*)$')
 
 def decode_s(s):
     try:
@@ -27,13 +29,23 @@ def nclf(argv):
 
     literal = False
     for arg in argv:
-        m = name_re.match(arg)
+        name_m = name_re.match(arg)
+        option_m = option_re.match(arg)
+        long_option_m = long_option_re.match(arg)
         if literal:
             args_pos.append(encode_b(arg))
         elif arg == '=':
             literal = True
-        elif m is not None:
-            x = m.groups()
+        elif option_m is not None:
+            x = option_m.groups()
+            for name in x[0]:
+                args_named[name] = True
+        elif long_option_m is not None:
+            x = long_option_m.groups()
+            name = x[0]
+            args_named[name] = True
+        elif name_m is not None:
+            x = name_m.groups()
             name = x[0]
             value = x[1]
             args_named[name] = decode_s(value)
