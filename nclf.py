@@ -11,17 +11,28 @@ def decode_s(s):
         return json.loads(s)
     except:
         try:
-            return json.loads('"%s"' % s.replace('"', '\\"'))
+            return json.loads('"%s"' % s)
         except:
-            return s
+            return encode_b(s)
+
+def encode_b(s):
+    return u''.join([
+        unichr(ord(c) if ord(c) >= 128 else ord(c))
+        for c in s
+    ])
 
 def nclf(argv):
     args_pos = []
     args_named = {}
 
+    literal = False
     for arg in argv:
         m = name_re.match(arg)
-        if m is not None:
+        if literal:
+            args_pos.append(encode_b(arg))
+        elif arg == '=':
+            literal = True
+        elif m is not None:
             x = m.groups()
             name = x[0]
             value = x[1]
