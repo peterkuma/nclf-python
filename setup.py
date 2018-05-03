@@ -4,7 +4,7 @@ from distutils.core import setup
 
 setup(
     name='nclf',
-    version='0.2.0',
+    version='0.3.0',
     description='nclf-python is an implementation of the New Command Line Format (NCLF) in python',
     author='Peter Kuma',
     author_email='peter.kuma@fastmail.com',

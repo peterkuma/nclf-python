@@ -69,6 +69,11 @@ output are `"`, ` ` and `\`.
 
 ## Release notes
 
+### 0.3.0 (2018-05-03)
+
+- Add literal strings following `=`.
+- Add support for binary string values.
+
 ### 0.2.0 (2018-05-02)
 
 - Add as_s.
